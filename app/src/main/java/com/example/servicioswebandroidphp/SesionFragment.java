@@ -47,6 +47,13 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
         //correo=vista.findViewById(R.id.etcorreo);
         iniciar_sesion = vista.findViewById(R.id.btniniciar);
         registrar=vista.findViewById(R.id.btnregistrar);
+        registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),Main3Activity.class);
+                startActivity(intent);
+            }
+        });
         rq = Volley.newRequestQueue(getContext());//requerimiento Volley
         iniciar_sesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,7 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
         jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
     }
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
